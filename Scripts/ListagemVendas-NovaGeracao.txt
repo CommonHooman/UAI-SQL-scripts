@@ -1,0 +1,36 @@
+SELECT T0."Serial" as "Nota Fiscal",
+T1."CFOPCode" as "CFOP",
+T0."DocDate" as "Data Emissão",
+T0."DocDueDate" as "Data Vencimento",
+T2."BPLName" as "Filial",
+T0."CardName" as "Cliente",
+T4."Name" as "Cidade Venda",
+T1."U_AGRT_NomeCultura" as "Cultura",
+T1."Dscription" as "Produto",
+T6."FirmName" as "Fornecedor",
+T7."ItmsGrpNam" as "Categoria",
+T8."SlpName" as "Vendedor",
+T1."unitMsr" as "Unidade Medida",
+T1."Quantity" as "Quantidade",
+T1."Price" as "Preço Unitário de Venda",
+T1."LineTotal" as "Faturamento Bruto",
+(SELECT SUM(XT2."WTAmnt")
+FROM INV5 XT2
+
+WHERE XT2."AbsEntry" = T0."DocEntry" and XT2."BaseLine" = T1."LineNum") as "Deduções",
+
+T1."StockPrice" as "Custo Unitário",
+(T1."Quantity" * T1."StockPrice") as "CMV" 
+
+FROM OINV  T0
+
+INNER JOIN INV1  T1 ON T0."DocEntry" = T1."DocEntry" 
+INNER JOIN OBPL  T2 ON T0."BPLId" = T2."BPLId" 
+INNER JOIN INV12  T3 ON T0."DocEntry" = T3."DocEntry"
+INNER JOIN OCNT T4 ON cast(T4."AbsId" as varchar(5)) = cast(T3."County" as varchar(5)) 
+INNER JOIN OITM T5 ON T1."ItemCode" = T5."ItemCode" 
+INNER JOIN OMRC T6 ON T5."FirmCode" = T6."FirmCode" 
+INNER JOIN OITB T7 ON T5."ItmsGrpCod" = T7."ItmsGrpCod" 
+INNER JOIN OSLP T8 ON T0."SlpCode" = T8."SlpCode" 
+
+WHERE T0."DocDate" BETWEEN [%0] and [%1] and T0."CANCELED" = 'N'

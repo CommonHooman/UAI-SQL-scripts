@@ -1,0 +1,14 @@
+OINV -> NF de saida
+INV1 -> linhas OINV
+INV12 -> dados do cliente da NF (CPF, Endereco)
+
+ORIN -> Dev. de NF de saida
+RIN1 -> linhas ORIN
+RIN21 -> "referencia NF" na aba de Impostos (fazer dev. de nf manualmente fica aqui)
+
+OBPL -> Filiais
+
+OCRD -> Cadastro de parceiro de negocios
+
+OPOR -> Pedidos de Compra
+POR1 -> linhas OPOR

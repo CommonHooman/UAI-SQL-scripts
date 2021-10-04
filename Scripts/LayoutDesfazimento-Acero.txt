@@ -1,0 +1,39 @@
+SELECT T0."DocEntry",
+T0."DocNum",
+T4."Serial",
+T4."SeriesStr",
+T4."DocDate",
+T1."ItemCode",
+T1."Dscription",
+T1."Quantity",
+--CLIENTE
+T4."CardName",
+T6."TaxId0",
+T6."TaxId4",
+--FILIAL
+T5."BPLName",
+T5."TaxIdNum",
+T5."TaxIdNum2",
+T5."Address", 
+T5."ZipCode",
+T5."AddrType",
+T5."Street",
+T5."StreetNo",
+T5."Building",
+T5."Block",
+T5."City",
+T5."State",
+T5."Country",
+--DEV. NF
+T0."DocDate",
+T0."DocTotal"
+
+FROM ORIN T0 
+INNER JOIN RIN1  T1 ON T0."DocEntry" = T1."DocEntry"
+LEFT JOIN RIN21 T2 ON T0."DocEntry" = T2."DocEntry"
+INNER JOIN INV1 T3 ON ifnull(T1."BaseEntry", T2."RefDocEntr") = T3."DocEntry" AND CASE T1."BaseType" WHEN -1 THEN T2."RefObjType" ELSE T1."BaseType" END = T3."ObjType" AND ifnull(T1."BaseLine", 0) = T3."LineNum"
+INNER JOIN OINV T4 ON T3."DocEntry" = T4."DocEntry" 
+INNER JOIN OBPL T5 ON T0."BPLId" = T5."BPLId" 
+INNER JOIN RIN12 T6 ON T0."DocEntry" = T6."DocEntry" 
+
+WHERE T0."DocEntry" = {?DocKey@}

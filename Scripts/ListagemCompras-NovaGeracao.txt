@@ -1,0 +1,23 @@
+SELECT T1."Dscription" as "Produto",
+T0."CardName" as "Fornecedor",
+T3."ItmsGrpNam" as "Categoria",
+T1."Quantity" as "Quantidade",
+T1."unitMsr" as "Unidade Medida",
+T1."Price" as "Preço Unitário",
+T1."LineTotal" as "Total",
+T0."DocDate" as "Data Compra",
+T0."DocDueDate" as "Data Vencimento",
+CASE T4."Incoterms" 
+WHEN '0' THEN 'CIF'
+WHEN '1' THEN 'FOB'
+WHEN '2' THEN 'Terceiros'
+WHEN '3' THEN 'Remetente'
+WHEN '4' THEN 'Destinatário'
+WHEN '9' THEN 'Sem frete' END as "Frete" 
+
+FROM OPCH T0  INNER JOIN PCH1 T1 ON T0."DocEntry" = T1."DocEntry" 
+INNER JOIN OITM T2 ON T1."ItemCode" = T2."ItemCode" 
+INNER JOIN OITB T3 ON T2."ItmsGrpCod" = T3."ItmsGrpCod" 
+INNER JOIN PCH12 T4 ON T0."DocEntry" = T4."DocEntry" 
+
+WHERE T0."DocDate" BETWEEN [%0] and [%1] and T0."CANCELED" = 'N'

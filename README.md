@@ -4,7 +4,7 @@ O Repositório em questão foi criado com o intuito de facilitar a documentaçã
 
 # Estrutura do repositório
 
-- **_Rpts/_** -> Relatórios/Layouts finalizados no Crystal (.rpt). Úteis para templates e aprender sobre a formatação no Crystal (eles contém os scripts e as fórmulas também).
+- **_Rpts/_** -> Relatórios/Layouts finalizados no Crystal (`.rpt`). Úteis para templates e aprender sobre a formatação no Crystal (eles contém os scripts e as fórmulas também).
 
 - **_Scripts/_** -> Scripts SQL utilizados nos relatórios e layouts. Úteis para aprender SQL, como JOINs, funções utilitárias (cast(), ifnull(), etc.). A maioria dos scripts está bem comentada.
 

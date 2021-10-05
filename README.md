@@ -11,7 +11,7 @@ O Repositório em questão foi criado com o intuito de facilitar a documentaçã
 - **_TabelasSAP.txt_** -> Lista de tabelas úteis do SAP e curtas descrições sobre seus usos.
 
 
-# Legenda:
+# Legenda
 
 O nome dado aos arquivos referentes aos scripts (`.txt`) e aos relatórios/layouts (`.rpt`) segue a regra:
 

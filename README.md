@@ -27,6 +27,6 @@ Por exemplo, o script _"PedidoDeCompra_EN-Perterra.txt"_ é referente ao layout 
 
 - Grande parte dos scripts se encontra no formato `.txt`. Os mesmos foram formulados no HanaStudio e portanto a passagem de tais scripts para o bloco de notas era muito mais prática do que para de fato um arquivo `.sql`
 
-- O estágio em questão teve a duração de 6 meses e foi realizado desde o meio do meu 1º período até o meio do 2º, isto é entre Abril e Outubro de 2021
+- O estágio em questão teve a duração de 6 meses e teve seu início no meu 1º período, durando até o meio do 2º, isto é, entre Abril e Outubro de 2021
 
 - Creio que os arquivos `.rpt` possam ser processados e "renderizados" por outros softwares além do Crystal Reports (onde foram inicialmente produzidos), assim como em outras base de dados. Contudo, obviamente, os scripts referentes à tais relatórios se tornaram obsoletos ao se referirem à outra base de dados (outras tabelas, outros campos, etc.)

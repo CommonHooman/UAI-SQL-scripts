@@ -8,7 +8,7 @@ O Repositório em questão foi criado com o intuito de facilitar a documentaçã
 
 - **_Scripts/_** -> Scripts SQL utilizados nos relatórios e layouts. Úteis para aprender SQL, como JOINs, funções utilitárias (cast(), ifnull(), etc.). A maioria dos scripts está bem comentada.
 
-- **_TabelasSAP.txt_** -> Lista de tabelas úteis do SAP e curtas descrições sobre seus usos.
+- **_TabelasSAP.md_** -> Lista de tabelas úteis do SAP + Explicação das estruturas das tabelas + Links úteis.
 
 
 # Legenda
